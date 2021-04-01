@@ -24,7 +24,7 @@ sal number(5,1) not null,
 
 comm number(5,1),
 
-dept number(4) references dept);
+deptno number(4) references dept);
 -------------------------------Inserting into dept table --------------------------
 insert into dept values (10,'Accounting','New York');
 insert into dept values (20, 'Research','Dallas');
