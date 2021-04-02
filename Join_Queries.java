@@ -48,4 +48,11 @@ select ename,dname from emp,dept where emp.deptno=dept.deptno(+)  //-->agr sign 
  //query----->
 select ename,dname from emp rightouter join dept on emp.deptno=dept.deptno;
 select ename,dname from emp,dept where emp.deptno(+)=dept.deptno //-->agr sign left vale kai sath  sign present ho toh matlb right ki sari records (right outer join)
- 
+ --------------------------------------------------SELF JOIN-------------------------------------------------------------------------------------------
+ek table mai do value hai jo ek dusre se linke hai , like in employe table empno and manager
+//ek emp ka ek he manager hoga
+//but ek manager kai under bhot sare employees ho skate hai
+//Q print ename along with manager their manager name
+//Ans -> In this we will treat emp as two differnt table one as e other as m
+select e.ename,m.ename from emp e,emp m where e.mgr=m.empno;            //e.mgr=m.empno is RIGHT but e.emp=m.mgr is wrong ,because isse ek employe kai bhot sare managers ho jate hai
+                                                                        //e.emp=m.mrg is WRONG
