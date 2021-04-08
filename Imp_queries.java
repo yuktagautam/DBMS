@@ -81,3 +81,8 @@ James	950	13
 select ename,sal,ROWNUM from (select * from emp order by sal desc) 
 where ROWNUM<=3  MINUS select ename,sal,ROWNUM from (select * from emp order by sal desc) where ROWNUM<=2;
 //---------------------------------
+
+// Q6--list the employee details whose salary is greater than average salary of all the employees joined after 1st April’1981. 
+select * from emp where sal>(select avg(sal) from emp) and hiredate> '01-apr-1981';
+//Q7--list the employee details whose salary is greater than average salary of all the employees who have joined after 1st April’1981. 
+select * from emp where sal>(select avg(sal) from emp where hiredate> '01-apr-1981');
