@@ -94,4 +94,5 @@ select max(avg(sal)) from emp group by deptno;   //output ->2916.666666666666666
 //but here we can't display job 
 *******WRONG************
 select job,max(avg(sal)) from emp group by deptno; // <----WRONG ,IMP--->Because we can not write a single value thing with a aggrigate function
-              
+*************RIGHT********
+select job from emp group by job having avg(sal)=(select max(avg(sal)) from emp group by job); //RIGHT            
