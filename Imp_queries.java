@@ -70,6 +70,7 @@ James	950	13
 // CAUTION *********   If we have only single '=' like-> ROWNUM=5 ,this will not work 
 //ROWNUM can work with combined '='with other operatand like '<=' ,'>='
 //CONCLUSION,ROWNUM work with [>=,<=,>,<]
+ //ROWNUM work on an individual record not on group.
   //**************************************************************************************************************************************************8
   
 //Question 4 Fetch top 5 records from employee according to the salary
@@ -86,3 +87,11 @@ where ROWNUM<=3  MINUS select ename,sal,ROWNUM from (select * from emp order by 
 select * from emp where sal>(select avg(sal) from emp) and hiredate> '01-apr-1981';
 //Q7--list the employee details whose salary is greater than average salary of all the employees who have joined after 1st April’1981. 
 select * from emp where sal>(select avg(sal) from emp where hiredate> '01-apr-1981');
+
+//-----------------------------------------
+//Q8- list the job with highest average salary
+select max(avg(sal)) from emp group by deptno;   //output ->2916.666666666666666666666666666666666667 
+//but here we can't display job 
+*******WRONG************
+select job,max(avg(sal)) from emp group by deptno; // <----WRONG ,IMP--->Because we can not write a single value thing with a aggrigate function
+              
