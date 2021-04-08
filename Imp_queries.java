@@ -96,3 +96,15 @@ select max(avg(sal)) from emp group by deptno;   //output ->2916.666666666666666
 select job,max(avg(sal)) from emp group by deptno; // <----WRONG ,IMP--->Because we can not write a single value thing with a aggrigate function
 *************RIGHT********
 select job from emp group by job having avg(sal)=(select max(avg(sal)) from emp group by job); //RIGHT            
+//Q- list the names of the employees who earn lowest salary in "each" dept. 
+//Ans-->yaha pai "each " hai 
+select ename from emp where sal in (select min(sal) from emp group by deptno);
+
+////Q- list the names of the employees who earn lowest salary in "their" dept. 
+Ans-->yaha their hai
+select ename from emp e where sal in (select min(sal) from emp m where e.deptno=m.deptno group by deptno);
+//altough the answer in this data case will produce same result ,but if data is something differnt then proper differnce in result can be seen
+
+
+
+
