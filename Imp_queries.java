@@ -103,6 +103,7 @@ select ename from emp where sal in (select min(sal) from emp group by deptno);
 ////Q- list the names of the employees who earn lowest salary in "their" dept. 
 Ans-->yaha their hai
 select ename from emp e where sal in (select min(sal) from emp m where e.deptno=m.deptno group by deptno);
+//emp e table ka har ek record is actually checking weather it's salary is present in min table salery record, if yese then deptno must matched as we are searching lower salary in it's group
 //altough the answer in this data case will produce same result ,but if data is something differnt then proper differnce in result can be seen
 
 
