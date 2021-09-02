@@ -33,21 +33,21 @@ phone_numbervarchar
 
 //order values
 id	cust_id	order_date	order_details	total_order_cost
-1	3	2019-03-04	Coat	100
-2	3	2019-03-01	Shoes	80
-3	3	2019-03-07	Skirt	30
-4	7	2019-02-01	Coat	25
-5	7	2019-03-10	Shoes	80
-6	15	2019-02-01	Boats	100
-7	15	2019-01-11	Shirts	60
+// 1	3	2019-03-04	Coat	100
+// 2	3	2019-03-01	Shoes	80
+// 3	3	2019-03-07	Skirt	30
+// 4	7	2019-02-01	Coat	25
+// 5	7	2019-03-10	Shoes	80
+// 6	15	2019-02-01	Boats	100
+// 7	15	2019-01-11	Shirts	60
   
 //customer values
-  8	John	Joseph	San Francisco		928-386-8164
-7	Jill	Michael	Austin		813-297-0692
-4	William	Daniel	Denver		813-368-1200
-5	Henry	Jackson	Miami		808-601-7513
-13	Emma	Isaac	Miami		808-690-5201
-14	Liam	Samuel	Miami		808-555-5201
+//   8	John	Joseph	San Francisco		928-386-8164
+// 7	Jill	Michael	Austin		813-297-0692
+// 4	William	Daniel	Denver		813-368-1200
+// 5	Henry	Jackson	Miami		808-601-7513
+// 13	Emma	Isaac	Miami		808-690-5201
+// 14	Liam	Samuel	Miami		808-555-5201
   
   //some what query like
   
@@ -59,10 +59,10 @@ order_date date,
 order_details varchar2(15) not null,
 total_order number(10));
 
-insert into orders values (1,3,2019-03-04,'Coat',100);
-insert into orders values (2,3,2019-03-01,'Shoes',80);
-insert into orders values (3,3,2019-03-07,'Skirt',30);
-insert into orders values (7,1,2019-02-01,'Coat',25);
+// insert into orders values (1,3,2019-03-04,'Coat',100);
+// insert into orders values (2,3,2019-03-01,'Shoes',80);
+// insert into orders values (3,3,2019-03-07,'Skirt',30);
+// insert into orders values (7,1,2019-02-01,'Coat',25);
 
 
 create table customers
@@ -73,10 +73,11 @@ city varchar2(10),
 address varchar2(20),
 phone_number number(11));
 
-insert into customers values(3,'Yukta','Gautam','Kkr','Address',9599279043);
-insert into customers values(7,'Sidhu','Gautam','Australia','Addres',349439435);
-insert into customers values(1,'abc','last','delhi','Addres',898989989);
-insert into customers values(2,'def','last2','Inndia','Address23',3);
-truncate table customers;
+// insert into customers values(3,'Yukta','Gautam','Kkr','Address',9599279043);
+// insert into customers values(7,'Sidhu','Gautam','Australia','Addres',349439435);
+// insert into customers values(1,'abc','last','delhi','Addres',898989989);
+// insert into customers values(2,'def','last2','Inndia','Address23',3);
+// truncate table customers;
 
+//ANSWER
 select o1.cust_id,c1.first_name,(o1.total_order/sum(o1.total_order) over (partition by c1.first_name)) percentage from orders o1,customers c1 where o1.cust_id=c1.id;
