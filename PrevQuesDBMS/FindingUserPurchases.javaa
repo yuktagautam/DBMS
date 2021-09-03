@@ -1,0 +1,6 @@
+//https://platform.stratascratch.com/coding/10322-finding-user-purchases?python=
+
+select distinct a.user_id from amazon_transactions a , amazon_transactions b 
+where a.user_id=b.user_id and a.id!=b.id and 
+(a.created_id- b.created_id ) between 0 and 7 
+order by user_id;
