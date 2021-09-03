@@ -20,6 +20,8 @@ INSERT INTO Emp_Details VALUES (1007,'F','E@yahu.com',102);
 INSERT INTO Emp_Details VALUES (1008,'M','M@yahu.com',102);
 INSERT INTO Emp_Details VALUES (1009,'F','SS@yahu.com',100);
 
-select DeptId,listagg(EmailID,';') within group (order by EmailID) from Emp_Details group by DeptId;
 
-select DeptId,listagg(EmailID,';') from Emp_Details group by DeptId;
+select DeptId,listagg(EmailID,';') from Emp_Details group by DeptId; //YYYPP
+//Answer
+select DeptId,listagg(EmailID,';') within group (order by EmailID) from Emp_Details group by DeptId; //PPYYY@ concat like
+
